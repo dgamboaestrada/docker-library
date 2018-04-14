@@ -1,4 +1,5 @@
 FROM nginx:latest
-COPY entrypoint.sh /entrypoint.sh
 COPY ./nginx.conf /etc/nginx/conf.d/default.conf
-ENTRYPOINT ["sh", "/entrypoint.sh"]
+
+COPY entrypoint.sh /usr/local/bin/
+ENTRYPOINT [ "entrypoint.sh" ]
