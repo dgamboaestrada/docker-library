@@ -36,7 +36,7 @@ RUN cd ~ && \
 RUN composer global require phpunit/phpunit ^7 && \
     echo 'export PATH=~/.composer/vendor/bin:$PATH' >> /root/.bashrc
 
-# Install yarn, node 8.x, gulp adn bower.
+# Install yarn, node 8.x, gulp and bower.
 RUN cd ~ && \
     apt-get update && \
     apt-get install -y yarn gnupg && \
