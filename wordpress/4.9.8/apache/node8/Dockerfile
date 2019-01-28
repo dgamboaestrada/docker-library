@@ -8,7 +8,8 @@ RUN apt-get update && \
     docker-php-ext-configure intl && \
     docker-php-ext-install intl && \
     docker-php-ext-install gd && \
-    docker-php-ext-install zip
+    docker-php-ext-install zip && \
+    docker-php-ext-install pdo_mysql
 
 # Install composer.
 RUN cd ~ && \
@@ -30,7 +31,9 @@ RUN cd ~ && \
 # Install WordPress Coding Standards for PHP_CodeSniffer
 RUN cd ~ && \
     composer create-project wp-coding-standards/wpcs --no-dev --no-interaction && \
-    echo 'export PATH=~/wpcs/vendor/bin:$PATH' >> /root/.bashrc
+    echo 'export PATH=~/wpcs/vendor/bin:$PATH' >> /root/.bashrc && \
+    cd ~/wpcs/ && \
+    composer update
 
 # Install PHPUnit
 RUN composer global require phpunit/phpunit ^7 && \
