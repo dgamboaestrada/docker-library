@@ -1,4 +1,4 @@
-FROM ruby:2.3.3
+FROM ruby:2.3.8
 
 # Install yarn, node 8.x and rails dependencies.
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash - && \
